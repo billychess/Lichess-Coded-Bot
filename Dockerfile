@@ -25,7 +25,8 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfT
 RUN bash msf.sh
 RUN rm master.zip
 RUN rm -r Stockfish-master
-RUN bash sf.sh
+RUN wget --no-check-certificate "http://abrok.eu/stockfish/latest/linux/stockfish_x64_modern.zip" -O chess-engine.zip
+RUN 7z e chess-engine.zip && rm chess-engine.zip && mv stockfish* chess-engine
 RUN wget --no-check-certificate "https://github.com/ianfab/Fairy-Stockfish/releases/download/fairy_sf_14_0_1_xq/fairy-stockfish-largeboard_x86-64-modern" -O fsf
 
 COPY requirements.txt .
